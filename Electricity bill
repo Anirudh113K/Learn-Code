@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+    int electricity_unit;
+    float amount, total_amount, surge_amount;
+
+    printf("Enter the electricity unit charges: ");
+    scanf("%d", &electricity_unit);
+
+    if(electricity_unit <= 50)
+    {
+        amount = electricity_unit * 0.50;
+    }
+    else if(electricity_unit <= 150)
+    {
+        amount = 25 + ((electricity_unit-50) * 0.75);
+    }
+    else if(electricity_unit <= 250)
+    {
+        amount = 100 + ((electricity_unit-150) * 1.20);
+    }
+    else
+    {
+        amount = 220 + ((electricity_unit-250) * 1.50);
+    }
+
+    surge_amount = amount * 0.20;
+    total_amount  = amount + surge_amount;
+
+    printf("The total electricity bill = Rs. %f", total_amount);
+
+    return 0;
+}
